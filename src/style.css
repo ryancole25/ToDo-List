@@ -33,11 +33,6 @@ body {
   height: 25px;
 }
 
-.option img:hover {
-  transform: scale(1.1);
-  fill: yellow;
-}
-
 .option:hover {
   color: lightgrey;
   cursor: pointer;
@@ -49,4 +44,58 @@ body {
   grid-template-columns: 1fr;
   justify-items: center;
   font-size: 30px;
+}
+
+.project-window-container {
+  position: fixed;
+  top: 20%;
+  left: 35%;
+  width: 40vw;
+  height: auto;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.project-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 10px;
+  padding: 10px;
+}
+
+.project-button-container button {
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 18px;
+  border: none;
+}
+
+.add {
+  background-color: rgb(0, 171, 102);
+  color: white;
+}
+
+.add:hover {
+  background-color: green;
+  cursor: pointer;
+}
+
+.cancel {
+  background-color: #f44336;
+  color: white;
+}
+
+.cancel:hover {
+  background-color: red;
+  cursor: pointer;
+}
+
+.project-window-container input {
+  width: 98%;
+}
+
+.project-window-container div {
+  font-size: 24px;
 }
