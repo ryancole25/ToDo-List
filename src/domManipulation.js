@@ -40,4 +40,12 @@ function projDomManipulation() {
   mainContainer.appendChild(projectWindowContainer);
 }
 
+function projectPanelDOM(projects, projName) {
+  const projDiv = document.createElement("div");
+  projDiv.classList.add("project");
+  projDiv.innerHTML = projName;
+  projects.appendChild(projDiv);
+}
+
 export { projDomManipulation };
+export { projectPanelDOM };

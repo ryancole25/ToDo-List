@@ -27,6 +27,7 @@ body {
   align-items: center;
   gap: 10px;
   font-size: 18px;
+  font-weight: normal;
 }
 
 .option img {
@@ -38,12 +39,13 @@ body {
   cursor: pointer;
 }
 
-.title {
+.projects {
   display: grid;
   grid-template-rows: 40px repeat(15, 1fr);
   grid-template-columns: 1fr;
   justify-items: center;
   font-size: 30px;
+  font-weight: bold;
 }
 
 .project-window-container {
@@ -70,6 +72,16 @@ body {
   border-radius: 5px;
   font-size: 18px;
   border: none;
+}
+
+.project {
+  font-weight: normal;
+  font-size: 18px;
+}
+
+.project:hover {
+  color: lightgray;
+  cursor: pointer;
 }
 
 .add {
