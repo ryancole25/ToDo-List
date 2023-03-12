@@ -104,6 +104,10 @@ body {
   cursor: pointer;
 }
 
+.active {
+  color: white;
+}
+
 .project-window-container input {
   width: 98%;
 }

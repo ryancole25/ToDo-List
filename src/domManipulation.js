@@ -41,8 +41,10 @@ function projDomManipulation() {
 }
 
 function projectPanelDOM(projects, projName, id) {
+  removeActiveProjects();
   const projDiv = document.createElement("div");
   projDiv.classList.add("project");
+  projDiv.classList.add("active");
   projDiv.id = id;
   projDiv.innerHTML = projName;
   projects.appendChild(projDiv);
@@ -50,6 +52,13 @@ function projectPanelDOM(projects, projName, id) {
 
 function addProjectToDOM() {
   return;
+}
+
+function removeActiveProjects() {
+  const projects = document.querySelectorAll(".project");
+  for (let i = 0; i < projects.length; i++) {
+    projects[i].className = "project";
+  }
 }
 
 export { projDomManipulation };
