@@ -1,5 +1,18 @@
 import { projDomManipulation } from "./domManipulation.js";
 import { projectPanelDOM } from "./domManipulation.js";
+import { projectSelector } from "./todo.js";
+
+// Will only allow for a new project menu if the current one is closed
+function checkForPopup() {
+  const projectWindowContainer = document.querySelector(
+    ".project-window-container"
+  );
+  if (projectWindowContainer == null) {
+    return false;
+  } else {
+    return true;
+  }
+}
 
 function createNewProject() {
   // Opens up a window to add a new project
@@ -9,7 +22,8 @@ function createNewProject() {
 function checkValidProject() {
   const projName = document.querySelector(".project-name");
   if (projName.value == "") {
-    console.log("Please enter a project name");
+    projName.style.backgroundColor = "#FFDCD1";
+    projName.setAttribute("placeholder", "Please enter a project name");
     return false;
   } else {
     return true;
@@ -22,6 +36,18 @@ function appendProject(projList) {
   addProjectsToPanel(projects, projList);
 }
 
+function addProjectListeners(projList) {
+  const projects = document.querySelectorAll(".project");
+  projects.forEach((project) =>
+    project.addEventListener("click", () => {
+      projectSelector(
+        projList[project.id].projName,
+        projList[project.id].projDescription
+      );
+    })
+  );
+}
+
 function clearAllProjects(projects) {
   while (projects.childNodes.length > 2) {
     projects.removeChild(projects.lastChild);
@@ -30,10 +56,12 @@ function clearAllProjects(projects) {
 
 function addProjectsToPanel(projects, projList) {
   for (let i = 0; i < projList.length; i++) {
-    projectPanelDOM(projects, projList[i].projName);
+    projectPanelDOM(projects, projList[i].projName, projList[i].id);
   }
 }
 
 export { createNewProject };
 export { checkValidProject };
 export { appendProject };
+export { checkForPopup };
+export { addProjectListeners };
