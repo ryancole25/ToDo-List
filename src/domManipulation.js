@@ -61,6 +61,43 @@ function removeActiveProjects() {
   }
 }
 
+function newItemDOM() {
+  const toDoItems = document.querySelector(".todo-items");
+  const newItemContainer = document.createElement("div");
+  newItemContainer.classList.add("item");
+
+  const taskInput = document.createElement("input");
+  taskInput.classList.add("task-input");
+  taskInput.type = "text";
+  taskInput.setAttribute("placeholder", "Default Task");
+  newItemContainer.appendChild(taskInput);
+
+  const dateInput = document.createElement("input");
+  dateInput.classList.add("date-input");
+  dateInput.type = "date";
+  newItemContainer.appendChild(dateInput);
+
+  const timeInput = document.createElement("input");
+  timeInput.classList.add("time-input");
+  timeInput.type = "time";
+  newItemContainer.appendChild(timeInput);
+
+  const addButton = document.createElement("button");
+  addButton.classList.add("add-button");
+  addButton.textContent = "Add";
+  newItemContainer.appendChild(addButton);
+
+  const cancelButton = document.createElement("button");
+  cancelButton.classList.add("cancel-button");
+  cancelButton.textContent = "Cancel";
+  newItemContainer.appendChild(cancelButton);
+
+  addButton;
+
+  toDoItems.appendChild(newItemContainer);
+}
+
 export { projDomManipulation };
 export { projectPanelDOM };
 export { addProjectToDOM };
+export { newItemDOM };

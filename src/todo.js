@@ -1,4 +1,5 @@
 import { addProjectToDOM } from "./domManipulation.js";
+import { newItemDOM } from "./domManipulation.js";
 
 function projectSelector(title, description) {
   const projTitle = document.querySelector(".project-title");
@@ -18,11 +19,7 @@ function addButtonListener() {
 addProjectToDOM();
 
 function newItem() {
-  const toDoItems = document.querySelector(".todo-items");
-  const newItemContainer = document.createElement("div");
-  newItemContainer.classList.add("item");
-  toDoItems.appendChild(newItemContainer);
-  console.log("ererwr");
+  newItemDOM();
 }
 
 export { projectSelector };

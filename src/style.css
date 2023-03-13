@@ -96,7 +96,8 @@ body {
   cursor: pointer;
 }
 
-.add {
+.add,
+.add-button {
   background-color: rgb(0, 171, 102);
   color: white;
 }
@@ -106,7 +107,8 @@ body {
   cursor: pointer;
 }
 
-.cancel {
+.cancel,
+.cancel-button {
   background-color: #f44336;
   color: white;
 }
@@ -176,4 +178,40 @@ body {
   height: 100px;
   border-radius: 30px;
   margin: 10px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  gap: 15px;
+  outline: 3px solid;
+  outline-color: var(--dark-green);
+}
+
+.item:hover {
+  transform: scale(1.01);
+}
+
+.task-input {
+  margin-left: 30px;
+  height: 30%;
+  font-size: 30px;
+}
+
+.date-input {
+  height: 30%;
+  font-size: 18px;
+}
+
+.time-input {
+  height: 30%;
+}
+
+.cancel-button,
+.add-button {
+  border-radius: 10px;
+  height: 30%;
+}
+
+.cancel-button {
+  margin-right: 10px;
 }
