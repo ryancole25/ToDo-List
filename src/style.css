@@ -1,9 +1,15 @@
+:root {
+  --grey-color: #535b59;
+  --dark-green: #53744c;
+  --light-green: #73ab5b;
+}
+
 body {
   height: 100vh;
 }
 
 .maincontainer {
-  background-color: blue;
+  background-color: var(--grey-color);
   display: grid;
   grid-template-columns: 1fr 5fr;
   grid-template-rows: 1fr;
@@ -12,13 +18,14 @@ body {
 }
 
 .navigation {
-  background-color: red;
+  background-color: var(--dark-green);
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 3;
   display: grid;
   grid-template-rows: repeat(3, 1fr) 8fr;
+  color: white;
 }
 
 .option {
@@ -32,10 +39,13 @@ body {
 
 .option img {
   height: 25px;
+  filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(212deg)
+    brightness(109%) contrast(102%);
 }
 
 .option:hover {
-  color: lightgrey;
+  filter: invert(76%) sepia(4%) saturate(23%) hue-rotate(314deg)
+    brightness(113%) contrast(90%);
   cursor: pointer;
 }
 
@@ -57,6 +67,8 @@ body {
   background-color: white;
   border-radius: 10px;
   padding: 10px;
+  border: 4px solid;
+  border-color: var(--light-green);
 }
 
 .project-button-container {
@@ -105,7 +117,7 @@ body {
 }
 
 .active {
-  color: white;
+  font-weight: 900;
 }
 
 .project-window-container input {
@@ -135,4 +147,33 @@ body {
 
 .proj-description {
   color: white;
+}
+
+.todo-items {
+  background-color: var(--grey-color);
+}
+
+.add-circle {
+  border: 3px solid #73ab5b;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: white;
+  margin-left: 10px;
+}
+
+.add-circle:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.item {
+  background-color: white;
+  height: 100px;
+  border-radius: 30px;
+  margin: 10px;
 }
