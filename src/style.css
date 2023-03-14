@@ -24,7 +24,7 @@ body {
   grid-row-start: 1;
   grid-row-end: 3;
   display: grid;
-  grid-template-rows: repeat(3, 1fr) 8fr;
+  grid-template-rows: 1fr 8fr;
   color: white;
 }
 
@@ -210,6 +210,9 @@ body {
 .add-button {
   border-radius: 10px;
   height: 30%;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
 }
 
 .cancel-button {

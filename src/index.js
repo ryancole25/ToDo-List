@@ -7,6 +7,7 @@ import { addProjectListeners } from "./project.js";
 
 import { projectSelector } from "./todo.js";
 import { addButtonListener } from "./todo.js";
+import { newItemDOM } from "./domManipulation";
 
 function Project(projName, projDescription, id) {
   this.projName = projName;
@@ -45,7 +46,6 @@ newProject.addEventListener("click", () => {
         projList.length
       );
       projList.push(newProj);
-      console.log(projList);
       projectWindowContainer.remove();
       projectSelector(projName.value, projDescription.value);
       appendProject(projList);
@@ -54,4 +54,15 @@ newProject.addEventListener("click", () => {
     }
   });
   cancelButton.addEventListener("click", () => projectWindowContainer.remove());
+});
+
+const addContent = document.querySelector(".add-circle");
+addContent.addEventListener("click", () => {
+  newItemDOM();
+});
+
+const homeButton = document.querySelector(".option");
+homeButton.addEventListener("click", () => {
+  projectSelector("Home", "");
+  addButtonListener();
 });

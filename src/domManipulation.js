@@ -97,7 +97,15 @@ function newItemDOM() {
   toDoItems.appendChild(newItemContainer);
 }
 
+function addButtonDOM(toDoItems) {
+  const addCircle = document.createElement("div");
+  addCircle.classList.add("add-circle");
+  addCircle.textContent = "+";
+  toDoItems.appendChild(addCircle);
+}
+
 export { projDomManipulation };
 export { projectPanelDOM };
 export { addProjectToDOM };
 export { newItemDOM };
+export { addButtonDOM };

@@ -1,6 +1,6 @@
 import { projDomManipulation } from "./domManipulation.js";
 import { projectPanelDOM } from "./domManipulation.js";
-import { projectSelector } from "./todo.js";
+import { addButtonListener, projectSelector } from "./todo.js";
 
 // Will only allow for a new project menu if the current one is closed
 function checkForPopup() {
@@ -51,6 +51,7 @@ function addProjectListeners(projList) {
         projList[project.id].projName,
         projList[project.id].projDescription
       );
+      addButtonListener();
     })
   );
 }
