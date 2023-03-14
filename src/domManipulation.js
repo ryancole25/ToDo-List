@@ -104,8 +104,43 @@ function addButtonDOM(toDoItems) {
   toDoItems.appendChild(addCircle);
 }
 
+function addToDoItemsToDOM(toDoList) {
+  const items = document.querySelectorAll(".item");
+  for (let i = 0; i < items.length; i++) {
+    items[i].remove();
+  }
+  const toDoItems = document.querySelector(".todo-items");
+  for (let j = 0; j < toDoList.length; j++) {
+    toDoItems.appendChild(
+      addItem(toDoList[j].name, toDoList[j].date, toDoList[j].time)
+    );
+  }
+}
+
+function addItem(name, date, time) {
+  const itemDiv = document.createElement("div");
+  itemDiv.classList.add("item");
+
+  const taskDiv = document.createElement("div");
+  taskDiv.classList.add("task");
+  taskDiv.textContent = name;
+  const dateDiv = document.createElement("div");
+  dateDiv.classList.add("date");
+  dateDiv.textContent = date;
+  const timeDiv = document.createElement("div");
+  timeDiv.classList.add("time");
+  timeDiv.textContent = time;
+
+  itemDiv.appendChild(taskDiv);
+  itemDiv.appendChild(dateDiv);
+  itemDiv.appendChild(timeDiv);
+
+  return itemDiv;
+}
+
 export { projDomManipulation };
 export { projectPanelDOM };
 export { addProjectToDOM };
 export { newItemDOM };
 export { addButtonDOM };
+export { addToDoItemsToDOM };

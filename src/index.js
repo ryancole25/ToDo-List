@@ -8,19 +8,13 @@ import { addProjectListeners } from "./project.js";
 import { projectSelector } from "./todo.js";
 import { addButtonListener } from "./todo.js";
 import { newItemDOM } from "./domManipulation";
+import { addToDoItemButton } from "./todo.js";
 
 function Project(projName, projDescription, id) {
   this.projName = projName;
   this.projDescription = projDescription;
   this.id = id;
   this.toDoItems = [];
-}
-
-function ToDoItem(name, date, description, checked) {
-  this.name = name;
-  this.date = date;
-  this.description = description;
-  this.checked = checked;
 }
 
 // Handle making new projects
