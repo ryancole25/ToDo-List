@@ -41,10 +41,18 @@ newProject.addEventListener("click", () => {
       );
       projList.push(newProj);
       projectWindowContainer.remove();
-      projectSelector(projName.value, projDescription.value);
+      projectSelector(
+        projName.value,
+        projDescription.value,
+        projList.length - 1,
+        projList
+      );
+      // Add project to the side panel
       appendProject(projList);
+      // Add listeners to the side panel projects
       addProjectListeners(projList);
-      addButtonListener(projList);
+      // Add listeners for the (+) button
+      addButtonListener(projList); // REVISIT THIS LOGIC
     }
   });
   cancelButton.addEventListener("click", () => projectWindowContainer.remove());

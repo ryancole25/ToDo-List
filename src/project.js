@@ -49,7 +49,9 @@ function addProjectListeners(projList) {
       }
       projectSelector(
         projList[project.id].projName,
-        projList[project.id].projDescription
+        projList[project.id].projDescription,
+        projList[project.id].id,
+        projList
       );
       addButtonListener();
     })

@@ -10,7 +10,8 @@ function ToDoItem(name, date, time, checked) {
   this.checked = checked;
 }
 
-function projectSelector(title, description) {
+// Allows you to select a project from the dashboard
+function projectSelector(title, description, id, projList) {
   const projTitle = document.querySelector(".project-title");
   const projDescription = document.querySelector(".proj-description");
   projTitle.textContent = title;
@@ -20,10 +21,16 @@ function projectSelector(title, description) {
   while (toDoItems.firstChild) {
     toDoItems.removeChild(toDoItems.lastChild);
   }
+  // Adds the (+) button to the page
   addButtonDOM(toDoItems);
-  newItemDOM();
+
+  console.log(projList[0].toDoItems);
+  if (projList[id].toDoItems.length == 0) {
+    newItemDOM();
+  }
 }
 
+// Function to add items to the todo list
 function addButtonListener(projList) {
   const addItemButton = document.querySelector(".add-circle");
   addToDoItemButton(projList);
@@ -33,21 +40,21 @@ function addButtonListener(projList) {
   });
 }
 
-addProjectToDOM();
+// addProjectToDOM();
 
+// Add a new item to the page
 function newItem() {
   newItemDOM();
 }
 
+// Creates a listener for the add button for a new to do item
 function addToDoItemButton(projList) {
   const addBtn = document.querySelector(".add-button");
-  console.log(addBtn);
   addBtn.addEventListener("click", () => {
     if (checkValidToDo()) {
       const taskInput = document.querySelector(".task-input");
       const dateInput = document.querySelector(".date-input");
       const timeInput = document.querySelector(".time-input");
-
       const projects = document.querySelectorAll(".project");
       for (let i = 0; i < projects.length; i++) {
         if (projects[i].className == "project active") {
