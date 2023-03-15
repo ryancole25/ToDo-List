@@ -131,11 +131,29 @@ function addItem(name, date, time) {
   timeDiv.classList.add("time");
   timeDiv.textContent = time;
 
+  const checkBox = document.createElement("div");
+  checkBox.classList.add("checkbox");
+
+  checkBox.addEventListener("click", () => {
+    toggleCheckBox(checkBox);
+  });
+
   itemDiv.appendChild(taskDiv);
   itemDiv.appendChild(dateDiv);
   itemDiv.appendChild(timeDiv);
+  itemDiv.appendChild(checkBox);
 
   return itemDiv;
+}
+
+function toggleCheckBox(checkBox) {
+  if (checkBox.className == "checkbox") {
+    checkBox.className = "checkbox check";
+    checkBox.innerHTML = `<img src="./images/checkmark.svg">`;
+  } else {
+    checkBox.className = "checkbox";
+    checkBox.innerHTML = "";
+  }
 }
 
 export { projDomManipulation };
