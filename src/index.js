@@ -1,3 +1,9 @@
+// TODO
+// Make the cancel button work for the new todo item
+// Make the home screen have all of the todo items from each project
+// Add ability to sort the todo items
+// Add "checked or unchecked feature for each to do list item
+
 import "./style.css";
 import { createNewProject } from "./project.js";
 import { checkValidProject } from "./project.js";
@@ -52,7 +58,7 @@ newProject.addEventListener("click", () => {
       // Add listeners to the side panel projects
       addProjectListeners(projList);
       // Add listeners for the (+) button
-      addButtonListener(projList); // REVISIT THIS LOGIC
+      // addButtonListener(projList, projList.length - 1); // REVISIT THIS LOGIC
     }
   });
   cancelButton.addEventListener("click", () => projectWindowContainer.remove());

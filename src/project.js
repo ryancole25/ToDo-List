@@ -36,6 +36,7 @@ function appendProject(projList) {
   addProjectsToPanel(projects, projList);
 }
 
+// Adds listeners for the projects on the side panel and toggles the current project as active
 function addProjectListeners(projList) {
   const projects = document.querySelectorAll(".project");
   projects.forEach((project) =>
@@ -53,7 +54,6 @@ function addProjectListeners(projList) {
         projList[project.id].id,
         projList
       );
-      addButtonListener();
     })
   );
 }

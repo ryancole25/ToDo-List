@@ -1,3 +1,4 @@
+// Brings up a window to make a new project
 function projDomManipulation() {
   const mainContainer = document.querySelector(".maincontainer");
   const projectWindowContainer = document.createElement("div");
@@ -61,10 +62,11 @@ function removeActiveProjects() {
   }
 }
 
+// Input for new to do item
 function newItemDOM() {
   const toDoItems = document.querySelector(".todo-items");
   const newItemContainer = document.createElement("div");
-  newItemContainer.classList.add("item");
+  newItemContainer.className = "item not-complete";
 
   const taskInput = document.createElement("input");
   taskInput.classList.add("task-input");
@@ -104,6 +106,7 @@ function addButtonDOM(toDoItems) {
   toDoItems.appendChild(addCircle);
 }
 
+// Removes all to do items and adds new ones based on the updated todo list
 function addToDoItemsToDOM(toDoList) {
   const items = document.querySelectorAll(".item");
   for (let i = 0; i < items.length; i++) {
@@ -117,6 +120,7 @@ function addToDoItemsToDOM(toDoList) {
   }
 }
 
+// Creates a div for each item
 function addItem(name, date, time) {
   const itemDiv = document.createElement("div");
   itemDiv.classList.add("item");
@@ -146,6 +150,8 @@ function addItem(name, date, time) {
   return itemDiv;
 }
 
+// Toggles the checkbox as checked or not checked
+// TODO --> add checked to the toDo item or not
 function toggleCheckBox(checkBox) {
   if (checkBox.className == "checkbox") {
     checkBox.className = "checkbox check";

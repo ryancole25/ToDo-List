@@ -24,16 +24,20 @@ function projectSelector(title, description, id, projList) {
   // Adds the (+) button to the page
   addButtonDOM(toDoItems);
 
-  console.log(projList[0].toDoItems);
+  // Add listener to the (+) button
+  addButtonListener(projList, id);
+
   if (projList[id].toDoItems.length == 0) {
     newItemDOM();
+    addToDoItemButton(projList);
+  } else {
+    addToDoItemsToDOM(projList[id].toDoItems);
   }
 }
 
-// Function to add items to the todo list
-function addButtonListener(projList) {
+// Adds listener to (+) button
+function addButtonListener(projList, id) {
   const addItemButton = document.querySelector(".add-circle");
-  addToDoItemButton(projList);
   addItemButton.addEventListener("click", () => {
     newItem();
     addToDoItemButton(projList);
@@ -42,9 +46,12 @@ function addButtonListener(projList) {
 
 // addProjectToDOM();
 
-// Add a new item to the page
+// Add a new item to the page if there isn't a new item
 function newItem() {
-  newItemDOM();
+  const items = document.querySelectorAll(".item");
+  if (items[items.length - 1].className != "item not-complete") {
+    newItemDOM();
+  }
 }
 
 // Creates a listener for the add button for a new to do item
@@ -68,9 +75,9 @@ function addToDoItemButton(projList) {
   });
 }
 
+// Validates that there is at least a task name for the todo item
 function checkValidToDo() {
   const taskInput = document.querySelector(".task-input");
-  console.log(taskInput.value);
   if (taskInput.value == "") {
     taskInput.style.backgroundColor = "#FFDCD1";
     taskInput.setAttribute("placeholder", "Required Field");
