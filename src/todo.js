@@ -11,7 +11,7 @@ function ToDoItem(name, date, time, checked) {
 }
 
 // Allows you to select a project from the dashboard
-function projectSelector(title, description, id, projList) {
+function projectSelector(title, description, toDoList) {
   const projTitle = document.querySelector(".project-title");
   const projDescription = document.querySelector(".proj-description");
   projTitle.textContent = title;
@@ -25,22 +25,22 @@ function projectSelector(title, description, id, projList) {
   addButtonDOM(toDoItems);
 
   // Add listener to the (+) button
-  addButtonListener(projList, id);
+  addButtonListener(toDoList);
 
-  if (projList[id].toDoItems.length == 0) {
+  if (toDoList.length == 0) {
     newItemDOM();
-    addToDoItemButton(projList);
+    addToDoItemButton(toDoList);
   } else {
-    addToDoItemsToDOM(projList[id].toDoItems);
+    addToDoItemsToDOM(toDoList);
   }
 }
 
 // Adds listener to (+) button
-function addButtonListener(projList, id) {
+function addButtonListener(toDoList) {
   const addItemButton = document.querySelector(".add-circle");
   addItemButton.addEventListener("click", () => {
     newItem();
-    addToDoItemButton(projList);
+    addToDoItemButton(toDoList);
   });
 }
 
@@ -55,7 +55,7 @@ function newItem() {
 }
 
 // Creates a listener for the add button for a new to do item
-function addToDoItemButton(projList) {
+function addToDoItemButton(toDoList) {
   const addBtn = document.querySelector(".add-button");
   addBtn.addEventListener("click", () => {
     if (checkValidToDo()) {
@@ -63,14 +63,10 @@ function addToDoItemButton(projList) {
       const dateInput = document.querySelector(".date-input");
       const timeInput = document.querySelector(".time-input");
       const projects = document.querySelectorAll(".project");
-      for (let i = 0; i < projects.length; i++) {
-        if (projects[i].className == "project active") {
-          projList[i].toDoItems.push(
-            new ToDoItem(taskInput.value, dateInput.value, timeInput.value)
-          );
-          addToDoItemsToDOM(projList[i].toDoItems);
-        }
-      }
+      toDoList.push(
+        new ToDoItem(taskInput.value, dateInput.value, timeInput.value)
+      );
+      addToDoItemsToDOM(toDoList);
     }
   });
 }

@@ -16,12 +16,16 @@ import { addButtonListener } from "./todo.js";
 import { newItemDOM } from "./domManipulation";
 import { addToDoItemButton } from "./todo.js";
 
+import { addToDoItemsToDOM } from "./domManipulation";
+
 function Project(projName, projDescription, id) {
   this.projName = projName;
   this.projDescription = projDescription;
   this.id = id;
   this.toDoItems = [];
 }
+
+const allToDo = [];
 
 // Handle making new projects
 const newProject = document.querySelector("#create-proj");
@@ -50,15 +54,12 @@ newProject.addEventListener("click", () => {
       projectSelector(
         projName.value,
         projDescription.value,
-        projList.length - 1,
-        projList
+        projList[projList.length - 1].toDoItems
       );
       // Add project to the side panel
       appendProject(projList);
       // Add listeners to the side panel projects
       addProjectListeners(projList);
-      // Add listeners for the (+) button
-      // addButtonListener(projList, projList.length - 1); // REVISIT THIS LOGIC
     }
   });
   cancelButton.addEventListener("click", () => projectWindowContainer.remove());
@@ -69,8 +70,8 @@ addContent.addEventListener("click", () => {
   newItemDOM();
 });
 
+const homeToDo = [];
 const homeButton = document.querySelector(".option");
 homeButton.addEventListener("click", () => {
-  projectSelector("Home", "");
-  addButtonListener();
+  projectSelector("Home", "", homeToDo);
 });
