@@ -2,6 +2,7 @@ import { addProjectToDOM } from "./domManipulation.js";
 import { newItemDOM } from "./domManipulation.js";
 import { addButtonDOM } from "./domManipulation.js";
 import { addToDoItemsToDOM } from "./domManipulation.js";
+import { removeNewItemDOM } from "./domManipulation.js";
 
 function ToDoItem(name, date, time, checked) {
   this.name = name;
@@ -30,6 +31,7 @@ function projectSelector(title, description, toDoList) {
   if (toDoList.length == 0) {
     newItemDOM();
     addToDoItemButton(toDoList);
+    cancelToDoItemButton();
   } else {
     addToDoItemsToDOM(toDoList);
   }
@@ -41,6 +43,7 @@ function addButtonListener(toDoList) {
   addItemButton.addEventListener("click", () => {
     newItem();
     addToDoItemButton(toDoList);
+    cancelToDoItemButton();
   });
 }
 
@@ -49,7 +52,9 @@ function addButtonListener(toDoList) {
 // Add a new item to the page if there isn't a new item
 function newItem() {
   const items = document.querySelectorAll(".item");
-  if (items[items.length - 1].className != "item not-complete") {
+  if (!items[0]) {
+    newItemDOM();
+  } else if (items[items.length - 1].className != "item not-complete") {
     newItemDOM();
   }
 }
@@ -68,6 +73,14 @@ function addToDoItemButton(toDoList) {
       );
       addToDoItemsToDOM(toDoList);
     }
+  });
+}
+
+function cancelToDoItemButton() {
+  const cancelBtn = document.querySelector(".cancel-button");
+  cancelBtn.addEventListener("click", () => {
+    console.log("cancel");
+    removeNewItemDOM();
   });
 }
 

@@ -41,13 +41,13 @@ function addProjectListeners(projList) {
   const projects = document.querySelectorAll(".project");
   projects.forEach((project) =>
     project.addEventListener("click", () => {
-      // for (let i = 0; i < projects.length; i++) {
-      //   if (i == projList[project.id].id) {
-      //     projects[i].className = "project active";
-      //   } else {
-      //     projects[i].className = "project";
-      //   }
-      // }
+      for (let i = 0; i < projects.length; i++) {
+        if (i == projList[project.id].id) {
+          projects[i].className = "project active";
+        } else {
+          projects[i].className = "project";
+        }
+      }
       projectSelector(
         projList[project.id].projName,
         projList[project.id].projDescription,

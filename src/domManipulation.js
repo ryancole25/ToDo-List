@@ -162,9 +162,15 @@ function toggleCheckBox(checkBox) {
   }
 }
 
+function removeNewItemDOM() {
+  const newItem = document.querySelector(".not-complete");
+  newItem.remove();
+}
+
 export { projDomManipulation };
 export { projectPanelDOM };
 export { addProjectToDOM };
 export { newItemDOM };
 export { addButtonDOM };
 export { addToDoItemsToDOM };
+export { removeNewItemDOM };
