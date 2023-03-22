@@ -1,3 +1,7 @@
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
 :root {
   --grey-color: #535b59;
   --dark-green: #53744c;

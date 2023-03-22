@@ -39,7 +39,6 @@ newProject.addEventListener("click", () => {
   );
   const addButton = projectWindowContainer.querySelector(".add");
   const cancelButton = projectWindowContainer.querySelector(".cancel");
-
   addButton.addEventListener("click", () => {
     if (checkValidProject()) {
       const projName = document.querySelector(".project-name");
@@ -75,3 +74,6 @@ const homeButton = document.querySelector(".option");
 homeButton.addEventListener("click", () => {
   projectSelector("Home", "", homeToDo);
 });
+
+// Select the home project as the default
+projectSelector("Home", "", homeToDo);
