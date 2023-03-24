@@ -1,8 +1,8 @@
 // TODO
-// Make the cancel button work for the new todo item
 // Make the home screen have all of the todo items from each project
 // Add ability to sort the todo items
 // Add "checked or unchecked feature for each to do list item
+// Add local storage
 
 import "./style.css";
 import { createNewProject } from "./project.js";

@@ -69,7 +69,7 @@ function addToDoItemButton(toDoList) {
       const timeInput = document.querySelector(".time-input");
       const projects = document.querySelectorAll(".project");
       toDoList.push(
-        new ToDoItem(taskInput.value, dateInput.value, timeInput.value)
+        new ToDoItem(taskInput.value, dateInput.value, timeInput.value, false)
       );
       addToDoItemsToDOM(toDoList);
     }

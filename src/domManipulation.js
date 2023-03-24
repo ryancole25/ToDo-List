@@ -114,32 +114,34 @@ function addToDoItemsToDOM(toDoList) {
   }
   const toDoItems = document.querySelector(".todo-items");
   for (let j = 0; j < toDoList.length; j++) {
-    toDoItems.appendChild(
-      addItem(toDoList[j].name, toDoList[j].date, toDoList[j].time)
-    );
+    toDoItems.appendChild(addItem(toDoList[j]));
   }
 }
 
 // Creates a div for each item
-function addItem(name, date, time) {
+function addItem(item) {
   const itemDiv = document.createElement("div");
   itemDiv.classList.add("item");
 
   const taskDiv = document.createElement("div");
   taskDiv.classList.add("task");
-  taskDiv.textContent = name;
+  taskDiv.textContent = item.name;
   const dateDiv = document.createElement("div");
   dateDiv.classList.add("date");
-  dateDiv.textContent = date;
+  dateDiv.textContent = item.date;
   const timeDiv = document.createElement("div");
   timeDiv.classList.add("time");
-  timeDiv.textContent = time;
+  timeDiv.textContent = item.time;
 
   const checkBox = document.createElement("div");
   checkBox.classList.add("checkbox");
+  if (item.checked) {
+    checkBox.className = "checkbox check";
+    checkBox.innerHTML = `<img src="./images/checkmark.svg">`;
+  }
 
   checkBox.addEventListener("click", () => {
-    toggleCheckBox(checkBox);
+    item.checked = toggleCheckBox(checkBox);
   });
 
   itemDiv.appendChild(taskDiv);
@@ -156,9 +158,11 @@ function toggleCheckBox(checkBox) {
   if (checkBox.className == "checkbox") {
     checkBox.className = "checkbox check";
     checkBox.innerHTML = `<img src="./images/checkmark.svg">`;
+    return true;
   } else {
     checkBox.className = "checkbox";
     checkBox.innerHTML = "";
+    return false;
   }
 }
 
