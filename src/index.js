@@ -1,8 +1,10 @@
 // TODO
 // Make the home screen have all of the todo items from each project
 // Add ability to sort the todo items
-// Add "checked or unchecked feature for each to do list item
+// Add edit button
+// Add delete button
 // Add local storage
+// Clean up the todo items (learn how to use date/time module)
 
 import "./style.css";
 import { createNewProject } from "./project.js";
@@ -17,6 +19,11 @@ import { newItemDOM } from "./domManipulation";
 import { addToDoItemButton } from "./todo.js";
 
 import { addToDoItemsToDOM } from "./domManipulation";
+
+import { format } from "date-fns";
+
+const date = format(new Date(2014, 1, 23), "yyyy-MM-dd");
+console.log(date);
 
 function Project(projName, projDescription, id) {
   this.projName = projName;

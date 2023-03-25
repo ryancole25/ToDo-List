@@ -37,14 +37,15 @@ body {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: normal;
 }
 
 .option img {
-  height: 25px;
+  height: 35px;
   filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(212deg)
     brightness(109%) contrast(102%);
+  margin-top: 4px;
 }
 
 .option:hover {
@@ -183,7 +184,7 @@ body {
   border-radius: 30px;
   margin: 10px;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
   align-items: center;
   gap: 15px;
@@ -191,25 +192,36 @@ body {
   outline-color: var(--dark-green);
 }
 
+.not-complete {
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
 .item:hover {
   transform: scale(1.01);
 }
 
-.task-input,
-.task {
+.task-input {
   margin-left: 30px;
   height: 30%;
   font-size: 30px;
 }
 
-.date-input,
-.date {
+.task {
+  margin-left: 30px;
+  font-size: 30px;
+}
+
+.date-input {
   height: 30%;
   font-size: 18px;
 }
 
-.time-input,
-.date {
+.date .time {
+  font-size: 20px;
+}
+
+.time-input {
   height: 30%;
 }
 
@@ -235,6 +247,8 @@ body {
   border-radius: 50%;
   border: 2px solid;
   border-color: var(--light-green);
+  justify-self: end;
+  margin-right: 30px;
 }
 
 .checkbox img {
