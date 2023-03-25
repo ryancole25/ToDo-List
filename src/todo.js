@@ -3,6 +3,7 @@ import { newItemDOM } from "./domManipulation.js";
 import { addButtonDOM } from "./domManipulation.js";
 import { addToDoItemsToDOM } from "./domManipulation.js";
 import { removeNewItemDOM } from "./domManipulation.js";
+import { format } from "date-fns";
 
 function ToDoItem(name, date, time, checked) {
   this.name = name;
@@ -68,8 +69,21 @@ function addToDoItemButton(toDoList) {
       const dateInput = document.querySelector(".date-input");
       const timeInput = document.querySelector(".time-input");
       const projects = document.querySelectorAll(".project");
+
+      let date = "";
+      if (dateInput.value != "") {
+        let month = dateInput.value.slice(5, 7);
+        let day = dateInput.value.slice(8, 10);
+        let year = dateInput.value.slice(0, 4);
+        day = parseInt(day) + 1;
+        if (day < 10) {
+          day = `0${day}`;
+        }
+        date = format(new Date(`${year}-${month}-${day}`), "MMMM dd, yyyy");
+      }
+      console.log(date);
       toDoList.push(
-        new ToDoItem(taskInput.value, dateInput.value, timeInput.value, false)
+        new ToDoItem(taskInput.value, date, timeInput.value, false)
       );
       addToDoItemsToDOM(toDoList);
     }
