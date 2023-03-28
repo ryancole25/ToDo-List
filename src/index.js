@@ -18,7 +18,8 @@ import { addButtonListener } from "./todo.js";
 import { newItemDOM } from "./domManipulation";
 import { addToDoItemButton } from "./todo.js";
 
-import { addToDoItemsToDOM } from "./domManipulation";
+import { allToDoItemsToDOM } from "./domManipulation";
+import { homeSelector } from "./todo.js";
 
 function Project(projName, projDescription, id) {
   this.projName = projName;
@@ -74,8 +75,12 @@ addContent.addEventListener("click", () => {
 const homeToDo = [];
 const homeButton = document.querySelector(".option");
 homeButton.addEventListener("click", () => {
-  projectSelector("Home", "", homeToDo);
+  homeSelector("Home", "", homeToDo, projList);
+  // // For each project, add the toDo items to the page
+  // for (let i = 0; i < projList.length; i++) {
+  //   allToDoItemsToDOM(projList[i].toDoItems);
+  // }
 });
 
-// Select the home project as the default
-projectSelector("Home", "", homeToDo);
+// // Select the home project as the default
+homeSelector("Home", "", homeToDo, projList);

@@ -109,9 +109,18 @@ function addButtonDOM(toDoItems) {
 // Removes all to do items and adds new ones based on the updated todo list
 function addToDoItemsToDOM(toDoList) {
   const items = document.querySelectorAll(".item");
+
   for (let i = 0; i < items.length; i++) {
     items[i].remove();
   }
+  const toDoItems = document.querySelector(".todo-items");
+  for (let j = 0; j < toDoList.length; j++) {
+    toDoItems.appendChild(addItem(toDoList[j]));
+  }
+}
+
+function allToDoItemsToDOM(toDoList) {
+  const items = document.querySelectorAll(".item");
   const toDoItems = document.querySelector(".todo-items");
   for (let j = 0; j < toDoList.length; j++) {
     toDoItems.appendChild(addItem(toDoList[j]));
@@ -178,3 +187,4 @@ export { newItemDOM };
 export { addButtonDOM };
 export { addToDoItemsToDOM };
 export { removeNewItemDOM };
+export { allToDoItemsToDOM };
