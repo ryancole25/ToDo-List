@@ -76,10 +76,6 @@ const homeToDo = [];
 const homeButton = document.querySelector(".option");
 homeButton.addEventListener("click", () => {
   homeSelector("Home", "", homeToDo, projList);
-  // // For each project, add the toDo items to the page
-  // for (let i = 0; i < projList.length; i++) {
-  //   allToDoItemsToDOM(projList[i].toDoItems);
-  // }
 });
 
 // // Select the home project as the default

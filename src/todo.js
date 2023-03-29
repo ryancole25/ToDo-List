@@ -54,7 +54,7 @@ function homeSelector(title, description, homeList, projList) {
   addButtonDOM(toDoItems);
 
   // Add listener to the (+) button
-  addButtonListener(homeList);
+  homeAddButtonListener(homeList, projList);
 
   if (homeList.length == 0) {
     newItemDOM();
@@ -79,6 +79,16 @@ function addButtonListener(toDoList) {
   });
 }
 
+// Adds listener to (+) button
+function homeAddButtonListener(toDoList, projList) {
+  const addItemButton = document.querySelector(".add-circle");
+  addItemButton.addEventListener("click", () => {
+    newItem();
+    homeAddToDoItemButton(toDoList, projList);
+    cancelToDoItemButton();
+  });
+}
+
 // addProjectToDOM();
 
 // Add a new item to the page if there isn't a new item
@@ -93,6 +103,7 @@ function newItem() {
 
 // Creates a listener for the add button for a new to do item
 function addToDoItemButton(toDoList) {
+  console.log("add");
   const addBtn = document.querySelector(".add-button");
   addBtn.addEventListener("click", () => {
     if (checkValidToDo()) {
