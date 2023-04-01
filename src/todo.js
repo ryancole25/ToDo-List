@@ -56,7 +56,7 @@ function homeSelector(title, description, homeList, projList) {
   // Add listener to the (+) button
   homeAddButtonListener(homeList, projList);
 
-  if (homeList.length == 0) {
+  if (homeList.length == 0 && projList.length == 0) {
     newItemDOM();
     homeAddToDoItemButton(homeList, projList);
     cancelToDoItemButton();
@@ -83,7 +83,7 @@ function addButtonListener(toDoList) {
 function homeAddButtonListener(toDoList, projList) {
   const addItemButton = document.querySelector(".add-circle");
   addItemButton.addEventListener("click", () => {
-    newItem();
+    homeNewItem(projList);
     homeAddToDoItemButton(toDoList, projList);
     cancelToDoItemButton();
   });
@@ -95,6 +95,16 @@ function homeAddButtonListener(toDoList, projList) {
 function newItem() {
   const items = document.querySelectorAll(".item");
   if (!items[0]) {
+    newItemDOM();
+  } else if (items[items.length - 1].className != "item not-complete") {
+    newItemDOM();
+  }
+}
+
+// Add a new item to the page if there isn't a new item
+function homeNewItem(projList) {
+  const items = document.querySelectorAll(".item");
+  if (!items[0] && projList.length != 0) {
     newItemDOM();
   } else if (items[items.length - 1].className != "item not-complete") {
     newItemDOM();
