@@ -189,7 +189,9 @@ function cancelToDoItemButton() {
 // Validates that there is at least a task name for the todo item
 function checkValidToDo() {
   const taskInput = document.querySelector(".task-input");
-  if (taskInput.value == "") {
+  // Checks regular expression to make sure there isn't just whitespace
+  if (taskInput.value.match(/^\s*$/)) {
+    taskInput.value = "";
     taskInput.style.backgroundColor = "#FFDCD1";
     taskInput.setAttribute("placeholder", "Required Field");
     return false;
