@@ -94,8 +94,6 @@ function newItemDOM() {
   cancelButton.textContent = "Cancel";
   newItemContainer.appendChild(cancelButton);
 
-  addButton;
-
   toDoItems.appendChild(newItemContainer);
 }
 
@@ -153,16 +151,25 @@ function addItem(item) {
     item.checked = toggleCheckBox(checkBox);
   });
 
+  const editButton = document.createElement("img");
+  editButton.classList.add("edit");
+  editButton.src = `./images/edit.svg`;
+
+  const closeButton = document.createElement("img");
+  closeButton.classList.add("close");
+  closeButton.src = `./images/close.svg`;
+
   itemDiv.appendChild(taskDiv);
   itemDiv.appendChild(dateDiv);
   itemDiv.appendChild(timeDiv);
   itemDiv.appendChild(checkBox);
+  itemDiv.appendChild(editButton);
+  itemDiv.appendChild(closeButton);
 
   return itemDiv;
 }
 
 // Toggles the checkbox as checked or not checked
-// TODO --> add checked to the toDo item or not
 function toggleCheckBox(checkBox) {
   if (checkBox.className == "checkbox") {
     checkBox.className = "checkbox check";

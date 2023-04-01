@@ -1,5 +1,4 @@
 // TODO
-// Make the home screen have all of the todo items from each project
 // Add ability to sort the todo items
 // Add edit button
 // Add delete button
