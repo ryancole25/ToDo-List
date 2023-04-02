@@ -113,7 +113,7 @@ function addToDoItemsToDOM(toDoList) {
   }
   const toDoItems = document.querySelector(".todo-items");
   for (let j = 0; j < toDoList.length; j++) {
-    toDoItems.appendChild(addItem(toDoList[j]));
+    toDoItems.appendChild(addItem(toDoList[j], toDoList));
   }
 }
 
@@ -126,7 +126,7 @@ function allToDoItemsToDOM(toDoList) {
 }
 
 // Creates a div for each item
-function addItem(item) {
+function addItem(item, toDoList) {
   const itemDiv = document.createElement("div");
   itemDiv.classList.add("item");
 
@@ -155,6 +155,12 @@ function addItem(item) {
   editButton.classList.add("edit");
   editButton.src = `./images/edit.svg`;
 
+  editButton.addEventListener("click", () => {
+    console.log(item);
+    // item.name = "Ryan";
+    editToDoItem(item);
+  });
+
   const closeButton = document.createElement("img");
   closeButton.classList.add("close");
   closeButton.src = `./images/close.svg`;
@@ -167,6 +173,10 @@ function addItem(item) {
   itemDiv.appendChild(closeButton);
 
   return itemDiv;
+}
+
+function editToDoItem() {
+  return;
 }
 
 // Toggles the checkbox as checked or not checked
