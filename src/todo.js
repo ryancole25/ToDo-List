@@ -89,8 +89,6 @@ function homeAddButtonListener(toDoList, projList) {
   });
 }
 
-// addProjectToDOM();
-
 // Add a new item to the page if there isn't a new item
 function newItem() {
   const items = document.querySelectorAll(".item");
@@ -113,7 +111,6 @@ function homeNewItem(projList) {
 
 // Creates a listener for the add button for a new to do item
 function addToDoItemButton(toDoList) {
-  console.log("add");
   const addBtn = document.querySelector(".add-button");
   addBtn.addEventListener("click", () => {
     if (checkValidToDo()) {
@@ -145,7 +142,6 @@ function addToDoItemButton(toDoList) {
 function homeAddToDoItemButton(homeList, projList) {
   const addBtn = document.querySelector(".add-button");
   addBtn.addEventListener("click", () => {
-    console.log("click");
     if (checkValidToDo()) {
       const taskInput = document.querySelector(".task-input");
       const dateInput = document.querySelector(".date-input");
@@ -168,11 +164,8 @@ function homeAddToDoItemButton(homeList, projList) {
       );
       addToDoItemsToDOM(homeList);
 
-      console.log(projList);
-
       // For each project, add the toDo items to the page
       for (let i = 0; i < projList.length; i++) {
-        console.log("HHHHHH");
         allToDoItemsToDOM(projList[i].toDoItems);
       }
     }

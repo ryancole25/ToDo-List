@@ -56,11 +56,13 @@ body {
 
 .projects {
   display: grid;
-  grid-template-rows: 40px repeat(15, 1fr);
+  grid-template-rows: 40px;
   grid-template-columns: 1fr;
   justify-items: center;
+  align-items: center;
   font-size: 30px;
   font-weight: bold;
+  grid-auto-rows: 40px;
 }
 
 .project-window-container {
@@ -94,6 +96,11 @@ body {
 .project {
   font-weight: normal;
   font-size: 18px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .project:hover {
@@ -125,6 +132,7 @@ body {
 
 .active {
   font-weight: 900;
+  background-color: var(--light-green);
 }
 
 .project-window-container input {

@@ -21,7 +21,9 @@ function createNewProject() {
 
 function checkValidProject() {
   const projName = document.querySelector(".project-name");
-  if (projName.value == "") {
+  // Makes sure the project name is not empty or just whitespace
+  if (projName.value.match(/^\s*$/)) {
+    projName.value = "";
     projName.style.backgroundColor = "#FFDCD1";
     projName.setAttribute("placeholder", "Please enter a project name");
     return false;
